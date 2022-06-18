@@ -45,18 +45,12 @@ ax.grid(False)
 ax.axis('off')
 
 
-# These are some of my favorite color mixes for this animation, try them all!
-# colors = plt.cm.viridis(np.linspace(0, 1, N_trajectories))
-# colors = plt.cm.Greys(np.linspace(0, 0.8, N_trajectories))
-# colors = plt.cm.Purples(np.linspace(0.3, 1, N_trajectories))
-# colors = plt.cm.YlOrRd(np.linspace(0, 1, N_trajectories))
+# This is one of my favorite color mixes for this animation,
+# but there are many more listed at the bottom. Try them all!
 colors = plt.cm.GnBu(np.linspace(0, 1, N_trajectories))
 
-# set up lines and points
-# lines = sum([ax.plot([], [], [], linestyle=(0, (1, 10)), linewidth=np.random.randint(1,3.1),
-#                      alpha=np.random.uniform(0.3, 1), c=c)
-#              for c in colors], [])
 
+# set up lines and points
 lines = sum([ax.plot([], [], [], linestyle=(0, (3, 5, 1, 5, 1, 5)), linewidth=np.random.randint(1,3.1),
                      alpha=np.random.uniform(0.3, 1), c=c)
              for c in colors], [])
@@ -83,6 +77,7 @@ def init():
         pt.set_3d_properties([])
     return lines + pts
 
+
 # animation function
 def animate(i):
 
@@ -104,3 +99,10 @@ def animate(i):
 anim = animation.FuncAnimation(fig, animate, init_func=init, frames=1010, interval=8, blit=False)
 
 plt.show()
+
+
+# Additional colors you may enjoy:
+# colors = plt.cm.viridis(np.linspace(0, 1, N_trajectories))
+# colors = plt.cm.Greys(np.linspace(0, 0.8, N_trajectories))
+# colors = plt.cm.Purples(np.linspace(0.3, 1, N_trajectories))
+# colors = plt.cm.YlOrRd(np.linspace(0, 1, N_trajectories))
